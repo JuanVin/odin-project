@@ -2,7 +2,7 @@
     function game (games){
         let win = 0;
         let lose = 0;
-        let both = 0;
+        let  draw = 0;
         for (var i = 1; i <= games; i++) {          
         let result = (playRound (prompt ("Enter Rock, Paper or Scissors!"), computerPlay()));
         document.write(result);
@@ -12,11 +12,11 @@
         if (result.slice(0,5) === "You L"){
             lose++;
         }
-        if (result.slice(0,5) === "Both "){
-            both++;
+        if (result.slice(0,5) === "Draw!"){
+            draw++;
         }
     }
-    document.write("Both: " + both + " Win: " + win + " Lose: "+lose);
+    document.write("Draw: " + draw + " Win: " + win + " Lose: "+lose);
 }
     function playRound(playerSelection, computerSelection) {
     // your code here!
@@ -30,7 +30,7 @@
                         return "You Lose! Paper beats Rock";
                 }
             else {
-                        return "Both choose Rock!"
+                        return "Draw!"
                 }
         }
         if (playerSelection === "paper"){
@@ -41,7 +41,7 @@
                         return "You Win! Paper beats Rock";
                 }
             else {
-                        return "Both choose Paper!"
+                        return "Draw!"
                 }
         }
         if (playerSelection === "scissors"){
@@ -52,7 +52,7 @@
                         return "You Win! Scissors beats Paper";
             }
             else {
-                        return "Both choose Scissors!"
+                        return "Draw!"
             }
         }   
     }
@@ -69,7 +69,6 @@
             return "rock";
         }
     }
-   // const playerSelection = "rock";
-   // const computerSelection = computerPlay();
+
     game (5);
 </script>
