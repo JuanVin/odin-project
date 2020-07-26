@@ -1,25 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock, Paper and Scissors</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="game"> 
+            <h1>Rock, Paper and Scissors!</h1>
+            <div class="buttonSelection">
+                <button type="button" id="rock" value ="rock"><img src="https://static.thenounproject.com/png/224425-200.png"></button> 
+                <button type="button" id="paper" value ="paper"><img src="https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/2679458861538117042-512.png"> </button> 
+                <button type="button" id="scissors" value ="scissors"><img src="https://cdn.shopify.com/s/files/1/1431/5776/products/scissor-icon-rubber-stamp.png?v=1507158328"></button> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
 <script>
-    function game (games){
-        let win = 0;
-        let lose = 0;
-        let  draw = 0;
-        for (var i = 1; i <= games; i++) {          
-        let result = (playRound (prompt ("Enter Rock, Paper or Scissors!"), computerPlay()));
-        document.write(result);
+   
+    function game (playerSelection){ 
+
+        let result = (playRound (playerSelection, computerPlay()));
+        const container=document.querySelector("#container");
+        const resultPlay = document.createElement("h3");
+        resultPlay.classList.add("resultPlay");
+        resultPlay.textContent= result.toString();
+        container.appendChild (resultPlay);
+
         if (result.slice(0,5) === "You W"){
-            win++;
-        }
+                win++;
+            }
         if (result.slice(0,5) === "You L"){
-            lose++;
-        }
+                lose++;
+ 
+            }
         if (result.slice(0,5) === "Draw!"){
-            draw++;
+                draw++;
+            }   
+        
+        //remove the element "resultPlay" 
+        button.forEach((button) => {
+        button.addEventListener('click', () => {
+        container.removeChild(resultPlay);
+            });
+        }); 
+        i++;
+
+        const div=document.createElement("div");
+        div.textContent= "You: " + win + " - PC: "+lose;
+        div.classList.add("count");
+        container.appendChild(div);
+        button.forEach((button) => {    
+                button.addEventListener('click', () => {
+                container.removeChild(div);
+                });
+            });
+        
+        if (win===5){
+            //insert score into html page after the game finished
+            const winner=document.createElement("h2");
+            winner.textContent="You Win!"
+            container.appendChild(winner);
+            //removes the div element before the game re-start
+            button.forEach((button) => {    
+                button.addEventListener('click', () => {
+                container.removeChild(winner);
+                });
+            });
+            i = 0;
+            win = 0;
+            lose = 0;
+            draw = 0;
+        }  
+        else if (lose===5){
+ 
+            const winner=document.createElement("h2");
+            winner.textContent="Computer Wins!"
+            container.appendChild(winner);
+            //removes the div element before the game re-start
+            button.forEach((button) => {    
+                button.addEventListener('click', () => {
+                container.removeChild(winner);
+                });
+            });
+            i = 0;
+            win = 0;
+            lose = 0;
+            draw = 0;
         }
     }
-    document.write("Draw: " + draw + " Win: " + win + " Lose: "+lose);
-}
+
+    //PlayRound Section
     function playRound(playerSelection, computerSelection) {
-    // your code here!
+
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
         if (playerSelection === "rock"){
@@ -57,6 +134,7 @@
         }   
     }
 
+    //Computerplay Section
     function computerPlay(){
         let random = Math.floor(Math.random() * 3);
         if (random === 0){
@@ -70,5 +148,21 @@
         }
     }
 
-    game (5);
+    //global variables
+
+    let win = 0;
+    let lose = 0;
+    let draw = 0;
+    let i = 0;
+
+    
+    
+    const button = document.querySelectorAll("button"); 
+    button.forEach((button) => {
+    button.addEventListener('click', () => {
+    playerSelection = button.value.toString();
+    game(playerSelection);
+        });
+    });
+
 </script>

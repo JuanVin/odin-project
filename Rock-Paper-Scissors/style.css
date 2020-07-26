@@ -1,0 +1,91 @@
+.container{
+    width:500px;
+    height: 550px;
+    margin: auto;
+    display: center;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+.container h1{
+    color: rgb(77, 11, 184);
+    background-color: rgb(74, 202, 221);
+    height: 50px;
+    padding-top: 25px;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10px;
+    border-style: double;
+}
+
+.container .buttonSelection{
+ 
+    text-align: center;  
+}
+#rock{
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    transition: .5s;
+}
+#rock img{
+    width: 70px;
+}
+#rock:hover{
+    scale: 150%;
+}
+#paper {
+    background-color: white;
+    border-radius: 5px; 
+    margin: 50px;
+    -webkit-box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    transition: .5s;
+}
+#paper img{
+    width: 70px;
+}
+#paper:hover{
+    scale: 150%;
+}
+#scissors {
+    background-color: white;
+    border-radius: 5px; 
+    -webkit-box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 15px -1px rgba(0,0,0,0.75);
+    transition: .5s;
+}
+#scissors img{
+    width: 70px;
+}
+#scissors:hover{
+    scale: 150%;
+
+}
+.resultPlay{
+    text-align: center;
+    color:rgb(77, 11, 184); 
+}
+.count{
+    font-size: 35px;
+    text-align: center;
+    color:rgb(77, 11, 184); 
+}
+.container h2{
+    margin:auto;
+    display: center;
+    text-align: center;
+    padding-top: 15px;
+    margin-top: 25px;
+    color:rgb(77, 11, 184); 
+    font-size: 35px;
+    background-color: floralwhite;
+    width: 350px;
+    height: 70px;
+    border-radius: 10px;  
+    border-style: double; 
+}

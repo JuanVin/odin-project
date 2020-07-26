@@ -1,0 +1,74 @@
+<script>
+    function game (games){
+        let win = 0;
+        let lose = 0;
+        let  draw = 0;
+        for (var i = 1; i <= games; i++) {          
+        let result = (playRound (prompt ("Enter Rock, Paper or Scissors!"), computerPlay()));
+        document.write(result);
+        if (result.slice(0,5) === "You W"){
+            win++;
+        }
+        if (result.slice(0,5) === "You L"){
+            lose++;
+        }
+        if (result.slice(0,5) === "Draw!"){
+            draw++;
+        }
+    }
+    document.write("Draw: " + draw + " Win: " + win + " Lose: "+lose);
+}
+    function playRound(playerSelection, computerSelection) {
+    // your code here!
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+        if (playerSelection === "rock"){
+             if (computerSelection === "scissors"){
+                        return "You Win! Rock beats Scissors";
+                }
+            else if (computerSelection === "paper"){
+                        return "You Lose! Paper beats Rock";
+                }
+            else {
+                        return "Draw!"
+                }
+        }
+        if (playerSelection === "paper"){
+            if (computerSelection === "scissors"){
+                        return "You Lose! Scissors beats Paper";
+                }
+            else if (computerSelection === "rock"){
+                        return "You Win! Paper beats Rock";
+                }
+            else {
+                        return "Draw!"
+                }
+        }
+        if (playerSelection === "scissors"){
+            if (computerSelection === "rock"){
+                        return "You Lose! Rock beats Scissors";
+            }
+            else if (computerSelection === "paper"){
+                        return "You Win! Scissors beats Paper";
+            }
+            else {
+                        return "Draw!"
+            }
+        }   
+    }
+
+    function computerPlay(){
+        let random = Math.floor(Math.random() * 3);
+        if (random === 0){
+            return "paper";
+        }
+        if (random === 1){
+            return "scissors";
+        }
+        if (random === 2){
+            return "rock";
+        }
+    }
+
+    game (5);
+</script>
