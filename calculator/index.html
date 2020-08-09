@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculator</h1> 
+        <div class="containerCalculator">            
+            <div id="display"></div>
+            <div id="displayResult"></div>
+            <div class="ac-c">
+                <button type="button">AC</button>
+                <button type="button" id="clear" value="clear">C</button>
+            </div>
+            <div class="numericalPad">
+                <button type="button" class="btn" value="7">7</button>
+                <button type="button" class="btn" value="8">8</button>
+                <button type="button" class="btn" value="9">9</button>
+                <button type="button" class="btn" value="4">4</button>
+                <button type="button" class="btn" value="5">5</button>
+                <button type="button" class="btn" value="6">6</button>
+                <button type="button" class="btn" value="1">1</button>
+                <button type="button" class="btn" value="2">2</button>
+                <button type="button" class="btn" value="3">3</button>
+                <button type="button" id="point" class="btn" value=".">.</button>
+                <button type="button" class="btn" value="0">0</button>
+                <button type="button" class="btn" value="=">=</button>
+            </div>
+            <div class="operators">
+                <button type="button" class="btn" value="+">+</button>
+                <button type="button" class="btn" value="-">-</button>
+                <button type="button" class="btn" value="/">/</button>
+                <button type="button" class="btn" value="*">*</button>    
+            </div>
+        </div>
+        <h1>Coded by <a href="https://github.com/JuanVin/odin-project">Juan Vinci</a></h1>
+        <a id="odinProject" href="https://www.theodinproject.com">Odin Project</a>
+    </div>
+</body>
+</html>
+
+<script>  
+//global variables
+const padButtons = document.querySelectorAll(".btn");
+const operatorsButtons = document.querySelectorAll(".btnOp");
+const display = document.getElementById("display");
+const displayResult = document.getElementById("displayResult");
+const pointBtn =document.getElementById("point");
+const clearBtn = document.getElementById("clear");
+
+const para = document.createElement("p");
+display.appendChild(para);
+
+const paraResult =document.createElement("p");
+displayResult.appendChild(paraResult);
+
+let myArray=[];
+let myOperators=["+","-","/","*"];
+let numSelected="";
+let numStored="";
+let DisplaySelelected="";
+let DisplayStored="";
+let result;
+
+
+//assing a function 
+function operator (numOne, Oper, numTwo){
+    numOne=parseFloat(numOne);
+    numTwo=parseFloat(numTwo);
+    if (Oper === "+"){    
+        return add(numOne,numTwo);
+    }
+    if (Oper === "-"){
+        return subtract(numOne,numTwo);
+    }
+    if (Oper === "*"){
+        return multiply(numOne,numTwo)
+    }
+    if (Oper === "/"){
+        return divide(numOne,numTwo)
+    }
+}
+
+function add(numOne,numTwo){
+    result = numOne+numTwo;
+    return result;
+}
+function subtract(numOne,numTwo){
+    result = numOne-numTwo;
+    return result;
+}
+function multiply(numOne,numTwo){
+    result = numOne*numTwo;
+    return result;
+}
+function divide(numOne,numTwo){
+    result = numOne/numTwo;
+    return result;
+}
+
+//compare if the buttonvalue is an operator
+function comparator(buttonvalue){
+    for (i=0; i <= myOperators.length; i++){
+        if (buttonvalue === myOperators[i]){
+            return buttonvalue;
+            break;
+        }
+    }
+}
+
+// wipe data
+function clear(){
+    DisplaySelelected= "";
+    DisplayStored= "";
+    myArray.length=0;
+    numStored="";
+    numSelected="";   
+    para.textContent="";
+    paraResult.textContent="";
+}
+
+//disable button if numStored contain a "." character
+function disableBtn(numStored){
+    console.log(numStored);
+    if (numStored.includes(".")){
+        pointBtn.disabled=true;
+        console.log("entra");
+    }
+    else{
+        pointBtn.disabled=false; 
+    }
+}
+
+function resultDisplayed(buttonvalue){
+    DisplaySelelected = buttonvalue;
+    DisplayStored = DisplayStored + DisplaySelelected; 
+    if (DisplayStored === comparator(DisplayStored)){
+        DisplayStored ="";
+        
+    }  
+    else{
+        para.textContent=DisplayStored;
+    }  
+    
+}
+
+//events
+clearBtn.addEventListener("click", () => {clear();});
+
+padButtons.forEach((button) => {
+    button.addEventListener("click", () =>{
+        if (button.value != "="){      
+            resultDisplayed(button.value);
+            if (button.value != comparator(button.value)){
+                numSelected = button.value;
+                numStored = numStored + numSelected;
+                disableBtn(numStored);
+            }
+            else {
+                if (numStored != ""){    
+                    myArray.push(numStored,button.value);
+                    console.log(myArray);
+                    if (myArray.length > 3){
+                        myArray[0]=operator (myArray[0], myArray[1], myArray[2]);
+                        myArray[1]=myArray[3];
+                        myArray=[myArray[0], myArray[1]];    
+                        numStored="";
+                        }     
+                    else {                   
+                        numStored="";
+                    }     
+                } 
+            }          
+            paraResult.textContent=myArray[0]
+        }     
+        else if (button.value === "="){
+            numStored = operator (myArray[0], myArray[1], numStored); 
+            paraResult.textContent=numStored; // display the result 
+            console.log(numStored)
+            myArray.length=0;
+        }  
+    });
+});
+
+</script>
