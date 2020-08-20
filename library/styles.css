@@ -1,0 +1,214 @@
+body{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.container #library{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: lightcoral;
+}
+.container .divOdin{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 70px;
+    text-align: center;
+}
+.container .divOdin h1{
+    font-size: 40px;
+    text-align: center;
+    color: lightcoral;
+}
+.containet .divOdin a{
+    font-size: 25px;
+}
+/* <----- Books ----->*/
+
+.principalPage{
+    display: flex;
+    font-family: 'Ubuntu', sans-serif;
+    justify-content: center;
+}
+.principalPage .addBtn{
+    margin-top: 40px;
+    width: 120px;
+    height: 50px;
+    position: absolute;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: #5a8cdd;
+    color: white;
+    transition: .2s;
+}
+.principalPage .addBtn:hover{
+    scale: 110%;
+    font-weight: bold;
+}
+.principalPage .myBooks{
+    margin-top: 150px;
+    width: 900px;
+    display:grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px; 
+}
+.newBook{
+    width: 250px;
+    height: 350px;
+    text-align: center;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 5px;
+    grid-gap: 20px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(212,212,212,1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(212,212,212,1);
+    box-shadow: 10px 10px 5px 0px rgba(212,212,212,1);
+}
+.newBook h3{
+    color: lightcoral;
+    height: 50px;
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+}
+.newBook p{
+    width: 100%;
+    color: #273469;
+    font-size: 18px;
+    margin-top: 30px;
+}
+.newBook i{
+    color: lightcoral;
+}
+.newBook button{
+    width: 95px;
+    height: 50px;
+    border: none;
+    margin-top:20px;
+    font-size: 18px;
+    background-color: #4e86e0;
+    color: white;
+    transition:.2s;
+}
+.newBook .removeBtn{
+    border-radius: 25px 0px 0px 25px;
+    border-right: 1px solid white;
+}
+.newBook .modifyBtn{
+    border-radius: 0px 25px 25px 0px;
+    border-left: 1px solid white;  
+}
+.newBook button:hover{
+    font-weight: bold;
+    scale: 105%;
+}
+
+    /* <----- Popup ----->*/
+
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display:flex;
+    background-color: rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    transition: 0.5s;
+}
+.overlay.active{
+    visibility: visible;
+}
+.popup{
+    width: 400px;
+    border-radius: 10px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-color: white;
+    font-family: 'Ubuntu', sans-serif;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: .5s ease all;
+}
+.popup.active{
+    transform: scale(1);
+    opacity: 1;
+}
+/* Inputs and headers styles */
+
+.popup h2{
+    font-size: 35px;
+    font-weight: 700;
+    color: #3066BE;
+}
+.popup .inputsPop{
+    margin: auto;
+    display: center;
+    width: 90%;
+}
+.popup .inputsPop input{
+    font-size: 15px;
+    width: 90%;
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 10px;
+    border:none;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    transition: .2s;
+}
+.popup .inputsPop input:hover{
+    border-bottom: 1px solid black;
+}
+
+/* Checkbox style */
+
+.popup .check{
+    margin-top: 25px;
+}
+.popup .check label{
+    font-size: 20px;
+    color: rgb(92, 92, 92);
+}
+.popup .check label:hover{
+    color:black;
+}
+
+
+/* Button style */
+
+.popup .closeBtn{
+    font-size: 25px;
+    display: block;
+    text-align: right;
+    margin-top:15px;
+    margin-right: 23px;
+    transition: .4s ease all;
+    color: cornflowerblue;
+}
+.popup .closeBtn:hover{
+    color: #3C3744;
+}
+.popup .submitBtn{
+    margin-top: 40px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    background-color: #5a8cdd;
+    font-size: 23px;
+    color: white;
+    transition: .2s ease all;
+    border-radius: 5px;
+}   
+.popup .submitBtn:hover{
+    background-color: #2169dd;
+    color:white;
+    font-weight: bold;
+}
+.popup .submitBtn:active{
+    scale: 95%;
+}
+
+

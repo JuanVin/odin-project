@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@700&display=swap" rel="stylesheet">  
+    <title>Library</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="library">Library</h1>
+        <div class="principalPage" id="principalPage">
+            <input type="submit" class="addBtn" id="addBtn" value="Add Book">
+            <div class="myBooks" id="myBooks"></div>
+        </div>
+        
+        <div class="overlay" id="overlay">
+            <div class="popup" id="popup">   
+                <a href="#" class="closeBtn" id="closeBtn"><i class="fas fa-times"></i></a>
+                <h2 id="modify">Add a new book!</h2>
+                <div class="inputsPop">
+                    <input type="text" id="name" placeholder="Name:" required>
+                    <input type="text" id="author" placeholder="Author:" required>
+                    <input type="text" id="pages" placeholder="Pages:" required>
+                </div> 
+                <div class="check">
+                    <label for="checked">Read?</label>
+                    <input type="checkbox" id="checked">
+                    <span></span>
+                </div>
+                <input type="submit" class="submitBtn" id="submitBtn" onclick="addBook()" value="Add!"> 
+            </div>
+        </div>
+        
+        <div class="divOdin">
+            <h1>Coded by <a href="https://github.com/JuanVin/odin-project">Juan Vinci</a></h1>
+            <a id="odinProject" href="https://www.theodinproject.com">Odin Project</a>
+        </div>
+    </div>
+    <script src="logic.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
