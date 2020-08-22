@@ -91,16 +91,48 @@ function modifyBook(idBtn){
 
 function addBook(){
     myObject = new Book(name.value, author.value, pages.value, checkbox.checked);
-    myLibrary.push(myObject);
+    myLibrary.push(myObject);  
     addBookToLibrary();
 }
 
 function addModifiedBook(idBtn){
     myLibrary[idBtn]=new Book(name.value, author.value, pages.value, checkbox.checked);
-    submitBtn = document.getElementById("submitBtn").setAttribute("onclick","addBook()");
+    submitBtn = document.getElementById("submitBtn").setAttribute("onclick","validate()");
+    closePopup();
     addBookToLibrary();
 }
-       
-    
 
+function validate(){
+    if(name.value === '' || author.value === '' || pages.value=== ''){
+        alert("Please complete the book's data!");
+    }
+    else {
+        closePopup();
+        addBook();
+    }
+}
 
+// <----- Popup Section ------->
+
+const addBtn=document.getElementById("addBtn"),
+        closeBtn=document.getElementById("closeBtn"),
+        overlay=document.getElementById("overlay"),
+        popup=document.getElementById("popup"),
+        submit=document.getElementById("submitBtn");
+
+    addBtn.addEventListener("click", function(){
+        overlay.classList.add("active");
+        popup.classList.add("active");
+        h2=document.getElementById("modify").innerHTML="Add a new Book!";
+        submit.setAttribute("value","Add!");
+    });  
+
+    closeBtn.addEventListener("click", function(){
+        overlay.classList.remove("active");
+        popup.classList.remove("active");
+    });    
+
+    function closePopup(){
+        overlay.classList.remove("active");
+        popup.classList.remove("active");
+    };   

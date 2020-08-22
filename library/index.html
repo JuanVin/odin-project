@@ -21,16 +21,16 @@
                 <a href="#" class="closeBtn" id="closeBtn"><i class="fas fa-times"></i></a>
                 <h2 id="modify">Add a new book!</h2>
                 <div class="inputsPop">
-                    <input type="text" id="name" placeholder="Name:" required>
-                    <input type="text" id="author" placeholder="Author:" required>
-                    <input type="text" id="pages" placeholder="Pages:" required>
+                    <input type="text" id="name" placeholder="Name:">
+                    <input type="text" id="author" placeholder="Author:">
+                    <input type="number" id="pages" placeholder="Pages:">
                 </div> 
                 <div class="check">
                     <label for="checked">Read?</label>
                     <input type="checkbox" id="checked">
                     <span></span>
                 </div>
-                <input type="submit" class="submitBtn" id="submitBtn" onclick="addBook()" value="Add!"> 
+                <input type="submit" class="submitBtn" id="submitBtn" onclick="validate()" value="Add!"> 
             </div>
         </div>
         
