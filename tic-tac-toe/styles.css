@@ -1,0 +1,89 @@
+
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container h1{
+    font-size: 45px;
+    margin-top:50px;
+    margin-bottom:50px;
+    color: salmon;
+}
+.players input{
+    width: 180px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+.start input{
+    margin-top: 30px;
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: royalblue;
+    color: white;  
+    transition: .2s;
+}
+.start input:hover{
+    scale: 110%;
+}
+.gameBoard{
+    margin-top:50px;
+    width: 400px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    visibility: hidden;
+    opacity: .5;
+    transform: scale(.5);
+    transition: .5s ease all;  
+}
+.active{
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+.gameCell{
+    width: 125px;
+    height: 125px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: salmon;
+}
+.borderCol{
+    border-right: solid grey 2px;
+    border-left: solid grey 2px;
+}
+.borderRow{
+    border-top: solid grey 2px;
+    border-bottom: solid grey 2px;
+}
+.displayPlayer{
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: cornflowerblue;
+    transition: .2s;
+}
+.winner{
+    color: tomato;
+    scale: 120%;
+}
+.odin{
+    text-align: center;
+    font-family: sans-serif;
+    
+}
+.odin h1{
+    color: salmon;
+    font-size: 35px;
+}
